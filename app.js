@@ -43,12 +43,21 @@
     var box = h('div', { class: 'scene' });
     box.innerHTML = D.scene(name, key || name);
     if (photo) {
-      var img = new Image();
-      img.alt = alt || '';
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      img.onload = function () { box.innerHTML = ''; box.appendChild(img); };
-      img.src = photo;
+      var img = h('img', {
+        class: 'scene-photo',
+        src: photo,
+        alt: alt || '',
+        decoding: 'async'
+      });
+      img.onload = function () { box.classList.add('has-photo'); };
+      img.onerror = function () {
+        if (img.parentNode) img.parentNode.removeChild(img);
+        if (window.console && console.warn) {
+          console.warn('China 2026: no se pudo cargar la foto «' + photo +
+            '». Comprueba la ruta, las mayúsculas y que el formato sea jpg, png o webp.');
+        }
+      };
+      box.appendChild(img);
     }
     return box;
   }
@@ -521,7 +530,8 @@
       body.appendChild(acts);
 
       cards.appendChild(h('article', { class: 'hotel' }, [
-        sceneBox(ht.scene, 'hotel-' + ht.city, ht.photo, 'Ilustración de ' + ht.city),
+        sceneBox(ht.scene, 'hotel-' + ht.city, ht.photo,
+          ht.photo ? 'Foto del hotel en ' + ht.city : 'Ilustración de ' + ht.city),
         body
       ]));
     });
@@ -637,7 +647,8 @@
 
   function guidePanel(dest) {
     var p = h('div', { class: 'acc-panel guide' });
-    p.appendChild(sceneBox(dest.scene, 'dest-' + dest.id, '', 'Ilustración de ' + dest.name));
+    p.appendChild(sceneBox(dest.scene, 'dest-' + dest.id, dest.photo || '',
+      dest.photo ? 'Foto de ' + dest.name : 'Ilustración de ' + dest.name));
 
     p.appendChild(h('h4', { text: 'Sobre la ciudad' }));
     dest.about.forEach(function (t) { p.appendChild(h('p', { text: t })); });
@@ -769,6 +780,31 @@
           onclick: function () { setTheme('light'); }
         })
       ])
+    ]));
+
+    frag.appendChild(h('div', { class: 'setting' }, [
+      h('span', { class: 'setting-k', text: 'Datos' }),
+      h('button', {
+        class: 'btn', type: 'button', text: 'Recargar del servidor',
+        onclick: function (ev) {
+          var b = ev.currentTarget;
+          b.disabled = true;
+          b.textContent = 'Actualizando…';
+          var jobs = [];
+          if (window.caches && caches.keys) {
+            jobs.push(caches.keys().then(function (ks) {
+              return Promise.all(ks.map(function (k) { return caches.delete(k); }));
+            }));
+          }
+          if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+            jobs.push(navigator.serviceWorker.getRegistrations().then(function (rs) {
+              return Promise.all(rs.map(function (r) { return r.unregister(); }));
+            }));
+          }
+          Promise.all(jobs)['catch'](function () { /* da igual */ })
+            .then(function () { location.reload(); });
+        }
+      })
     ]));
 
     frag.appendChild(h('div', { class: 'foot' }, [

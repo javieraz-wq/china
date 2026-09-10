@@ -109,6 +109,9 @@ a { color: inherit; }
   height: 100%;
   object-fit: cover;
 }
+/* La foto real, cuando existe, se revela encima de la ilustracion. */
+.scene-photo { position: absolute; inset: 0; }
+.scene.has-photo svg { visibility: hidden; }
 
 /* ------------------------------------------------------ pantalla acceso */
 
