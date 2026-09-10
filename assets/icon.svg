@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="China 2026">
+  <rect width="512" height="512" rx="112" fill="#EFEBE2"/>
+  <circle cx="332" cy="176" r="62" fill="#8C2B22" fill-opacity="0.85"/>
+  <path d="M-20 512 L-20 372 C40 372 60 262 128 262 C196 262 214 372 274 372 L274 512 Z" fill="#221E1A" fill-opacity="0.30"/>
+  <path d="M60 512 L60 400 C130 400 152 268 232 268 C312 268 332 400 402 400 L402 512 Z" fill="#221E1A" fill-opacity="0.55"/>
+  <path d="M250 512 L250 416 C314 416 336 300 400 300 C464 300 484 416 540 416 L540 512 Z" fill="#221E1A" fill-opacity="0.82"/>
+</svg>
