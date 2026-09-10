@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>China 2026</title>
+<meta name="description" content="Guía de viaje privada.">
+<meta name="theme-color" content="#100F0E" id="theme-color">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="China 2026">
+<meta name="robots" content="noindex, nofollow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+/* Fija el tema antes del primer pintado para que no haya destello. */
+(function () {
+  var t = 'dark';
+  try { var v = localStorage.getItem('china2026.theme'); if (v === 'light') t = 'light'; } catch (e) {}
+  document.documentElement.setAttribute('data-theme', t);
+  if (t === 'light') {
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', '#EFEBE2');
+  }
+})();
+</script>
+</head>
+<body>
+
+<!-- ------------------------------------------------ pantalla de acceso -->
+<div id="gate" class="gate">
+  <div class="gate-art" id="gate-art" aria-hidden="true"></div>
+  <div class="gate-inner">
+    <p class="gate-cn" aria-hidden="true">中国</p>
+    <h1 class="gate-title">China<span>2026</span></h1>
+    <p class="gate-sub">Tu viaje empieza aquí</p>
+
+    <form id="gate-form" class="gate-form" autocomplete="off">
+      <label class="gate-label" for="gate-pass">Contraseña</label>
+      <input id="gate-pass" class="gate-input" type="password" inputmode="text"
+             autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"
+             aria-describedby="gate-error" required>
+      <p id="gate-error" class="gate-error" role="alert" hidden>Esa no es. Inténtalo otra vez.</p>
+      <button type="submit" class="btn btn-solid gate-btn">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<!-- ------------------------------------------------------- aplicación -->
+<div id="app" class="app" hidden>
+
+  <header id="topbar" class="topbar" hidden>
+    <h1 id="topbar-title" class="topbar-title"></h1>
+  </header>
+
+  <main id="view" class="view" tabindex="-1"></main>
+
+  <nav class="tabbar" aria-label="Secciones">
+    <a class="tab" href="#/inicio" data-tab="inicio">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11.2 12 4l9 7.2"/><path d="M5.6 9.8V20h12.8V9.8"/></svg>
+      <span>Inicio</span>
+    </a>
+    <a class="tab" href="#/itinerario" data-tab="itinerario">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8.5 3v4M15.5 3v4"/></svg>
+      <span>Itinerario</span>
+    </a>
+    <a class="tab" href="#/hoteles" data-tab="hoteles">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 20V6M3 11h13a4 4 0 0 1 4 4v5M3 20h18"/><circle cx="7.5" cy="9" r="1.6"/></svg>
+      <span>Hoteles</span>
+    </a>
+    <a class="tab" href="#/transportes" data-tab="transportes">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="3.5" width="12" height="13" rx="3"/><path d="M6 12h12M8.5 20l-1.5 1.5M15.5 20l1.5 1.5M8.5 16.5v3M15.5 16.5v3"/></svg>
+      <span>Transportes</span>
+    </a>
+    <a class="tab" href="#/info" data-tab="info">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v6M12 7.6v.8"/></svg>
+      <span>Más info</span>
+    </a>
+  </nav>
+</div>
+
+<script src="data/trip.js"></script>
+<script src="data/itinerary.js"></script>
+<script src="data/hotels.js"></script>
+<script src="data/transport.js"></script>
+<script src="data/destinations.js"></script>
+<script src="data/checklist.js"></script>
+<script src="art.js"></script>
+<script src="sha256.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
