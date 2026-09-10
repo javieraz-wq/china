@@ -16,7 +16,7 @@ window.TRIP.hotels = [
   "amenities": [],
   "booked": true,
   "link": "https://www.trip.com/w/ONbtIzIpvV2",
-  "photo": ""
+  "photo": "assets/photos/shanghai.jpg"
  },
  {
   "city": "Guilin",
@@ -34,7 +34,7 @@ window.TRIP.hotels = [
   ],
   "booked": true,
   "link": "https://es.trip.com/hotels/detail/?hotelId=35450907&locale=es-ES",
-  "photo": ""
+  "photo": "assets/photos/guilin.jpg"
  },
  {
   "city": "Yangshuo",
@@ -52,7 +52,7 @@ window.TRIP.hotels = [
   ],
   "booked": true,
   "link": "https://es.trip.com/hotels/detail/?hotelId=76543115&locale=es-ES",
-  "photo": ""
+  "photo": "assets/photos/yangshuo.jpeg"
  },
  {
   "city": "Wulingyuan",
@@ -70,7 +70,7 @@ window.TRIP.hotels = [
   ],
   "booked": true,
   "link": "https://es.trip.com/hotels/detail/?hotelId=127598718&locale=es-ES",
-  "photo": ""
+  "photo": "assets/photos/wullingjuan.jpg"
  },
  {
   "city": "Zhangjiajie · Yongding",
@@ -88,7 +88,7 @@ window.TRIP.hotels = [
   ],
   "booked": true,
   "link": "https://es.trip.com/hotels/detail/?hotelId=85569672&locale=es-ES",
-  "photo": ""
+  "photo": "assets/photos/yonding.webp"
  },
  {
   "city": "Furong",
@@ -108,7 +108,7 @@ window.TRIP.hotels = [
   ],
   "booked": true,
   "link": "https://es.trip.com/hotels/detail/?hotelId=70371958&locale=es-ES",
-  "photo": ""
+  "photo": "assets/photos/furong.jpg"
  },
  {
   "city": "Chongqing",
@@ -124,7 +124,7 @@ window.TRIP.hotels = [
   "amenities": [],
   "booked": true,
   "link": "https://es.trip.com/hotels/detail/?hotelId=131829373&locale=es-ES",
-  "photo": ""
+  "photo": "assets/photos/chongqing.webp"
  },
  {
   "city": "Chengdu",
@@ -142,7 +142,7 @@ window.TRIP.hotels = [
   "amenities": [],
   "booked": false,
   "link": "https://www.trip.com/w/NL3UxRcp9W2",
-  "photo": ""
+  "photo": "assets/photos/chengdu.jpg"
  },
  {
   "city": "Xi'an",
@@ -160,7 +160,7 @@ window.TRIP.hotels = [
   ],
   "booked": true,
   "link": "https://es.trip.com/hotels/detail/?hotelId=114940192&locale=es-ES",
-  "photo": ""
+  "photo": "assets/photos/xian.jpg"
  },
  {
   "city": "Pekín",
@@ -178,6 +178,6 @@ window.TRIP.hotels = [
   ],
   "booked": true,
   "link": "https://es.trip.com/hotels/detail/?hotelId=346488&locale=es-ES",
-  "photo": ""
+  "photo": "assets/photos/pekin.jpg"
  }
 ];
